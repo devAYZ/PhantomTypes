@@ -4,28 +4,29 @@ import Foundation
 
 protocol Currency: Equatable {
     var code: String { get }
+    var amount: CurrencyValue<Self> { get set }
 }
 
-struct Money<P: Currency>: Equatable {
+struct CurrencyValue<P: Currency>: Equatable {
     var amount: Double = 0
 }
 
 struct PoundsSterling: Currency {
     var code: String { "GBP" }
     
-    var amount = Money<Self>()
+    var amount = CurrencyValue<Self>()
 }
 
 struct Euro: Currency {
     var code: String { "EUR" }
     
-    var amount = Money<Self>()
+    var amount = CurrencyValue<Self>()
 }
 
 struct Dollar: Currency {
     var code: String { "USD" }
     
-    var amount = Money<Self>()
+    var amount = CurrencyValue<Self>()
 }
 
 class City {
@@ -34,8 +35,8 @@ class City {
     var poundEarning = PoundsSterling(amount: .init(amount: 1000))
     
     func compareEarnings() {
-        print(dollarEarning == poundEarning)
-        print(dollarEarning.amount == poundEarning.amount)
+        print(dollarEarning == dollarEarning)
+        print(dollarEarning.amount == dollarEarning.amount)
     }
 }
 

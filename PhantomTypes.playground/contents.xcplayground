@@ -4,5 +4,6 @@
         <page name='Untitled Page'/>
         <page name='UUID example'/>
         <page name='UUID example with phantom'/>
+        <page name='Employee'/>
     </pages>
 </playground>

@@ -15,5 +15,5 @@ let bill = Employee<Sales>(name: "Zoe")
 
 let elon = Employee<String>(name: "Zoe")
 
-print(mark == elon)
+print(mark == mark)
 //: [Next](@next)
